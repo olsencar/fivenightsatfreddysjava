@@ -466,7 +466,7 @@ public class Main implements Runnable, MouseListener, MouseMotionListener {
 						}
 					}
 				}
-				if(Office.monitorUp == true && Window.cameraLocation.equals("West Hall A")) {
+				if(Office.monitorUp == true && Window.cameraLocation.equals("West Hall A") && Foxy.stage == 3) {
 					if (FoxyTimer < 4) {
 						FoxyTimer++;
 					}
@@ -920,10 +920,10 @@ public class Main implements Runnable, MouseListener, MouseMotionListener {
 
 				}
 				if (Window.startGame == true) {
-					if (powerTick < 200) {
+					if (powerTick < 300) {
 						powerTick++;
 					}
-					if (powerTick == 200) {
+					if (powerTick == 300) {
 						Office.descreasepower();
 						powerTick = 0;
 					}

@@ -5,6 +5,8 @@ import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.concurrent.TimeUnit;
 
 public class Window extends JFrame { //A ton of variable declarations
 
@@ -59,8 +61,7 @@ public class Window extends JFrame { //A ton of variable declarations
 			powerout1, powerout2, powerout3, powerout4, powerout5, powerout6,
 			powerout7, powerout8, powerout9, powerout10, powerout11,
 			powerout12, powerout13, powerout14, powerout15, powerout16,
-			powerout17, powerout18, powerout19, powerout20, powerout21,
-			foxrun1, foxrun2, foxrun3, foxrun4, foxrun5, foxrun6, foxrun7,
+			powerout17, powerout18, powerout19, powerout20, powerout21, foxrun1, foxrun2, foxrun3, foxrun4, foxrun5, foxrun6, foxrun7,
 			foxrun8, foxrun9, foxrun10, foxrun11, foxrun12, foxrun13, foxrun14,
 			foxrun15, foxrun16, foxrun17, foxrun18, foxrun19, foxrun20,
 			foxrun21, foxrun22, foxrun23, foxrun24, foxrun25, foxrun26,
@@ -92,13 +93,14 @@ public class Window extends JFrame { //A ton of variable declarations
 			rightdoor10, rightdoor11, rightdoor12, rightdoor13, onehundred,
 			ninety, eighty, seventy, sixty, fifty, forty, thirty, twenty, ten,
 			zero, lose, win, offline;
-
+	BufferedImage foxyRuns[] = new BufferedImage[31];
 	public Window() {//Imports everything and creates the window
 		super("Five Nights at Freddy's");
 		setSize((int) width(Width), (int) height(Height));
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
+		int i = 0;
 		try {//Imports sound files
 			knock = Applet.newAudioClip(Window.class.getResource("FoxyKnock.wav"));
 			run = Applet.newAudioClip(Window.class.getResource("FoxyRun.wav"));
@@ -268,37 +270,37 @@ public class Window extends JFrame { //A ton of variable declarations
 			powerleft = ImageIO.read(Window.class.getResource("207.png"));
 			percentsign = ImageIO.read(Window.class.getResource("208.png"));
 			cameraBar = ImageIO.read(Window.class.getResource("420.png"));
-			foxrun1 = ImageIO.read(Window.class.getResource("244.png"));
-			foxrun2 = ImageIO.read(Window.class.getResource("245.png"));
-			foxrun3 = ImageIO.read(Window.class.getResource("246.png"));
-			foxrun4 = ImageIO.read(Window.class.getResource("247.png"));
-			foxrun5 = ImageIO.read(Window.class.getResource("248.png"));
-			foxrun6 = ImageIO.read(Window.class.getResource("250.png"));
-			foxrun7 = ImageIO.read(Window.class.getResource("280.png"));
-			foxrun8 = ImageIO.read(Window.class.getResource("282.png"));
-			foxrun9 = ImageIO.read(Window.class.getResource("283.png"));
-			foxrun10 = ImageIO.read(Window.class.getResource("284.png"));
-			foxrun11 = ImageIO.read(Window.class.getResource("285.png"));
-			foxrun12 = ImageIO.read(Window.class.getResource("286.png"));
-			foxrun13 = ImageIO.read(Window.class.getResource("287.png"));
-			foxrun14 = ImageIO.read(Window.class.getResource("288.png"));
-			foxrun15 = ImageIO.read(Window.class.getResource("289.png"));
-			foxrun16 = ImageIO.read(Window.class.getResource("290.png"));
-			foxrun17 = ImageIO.read(Window.class.getResource("292.png"));
-			foxrun18 = ImageIO.read(Window.class.getResource("302.png"));
-			foxrun19 = ImageIO.read(Window.class.getResource("306.png"));
-			foxrun20 = ImageIO.read(Window.class.getResource("327.png"));
-			foxrun21 = ImageIO.read(Window.class.getResource("329.png"));
-			foxrun22 = ImageIO.read(Window.class.getResource("330.png"));
-			foxrun23 = ImageIO.read(Window.class.getResource("331.png"));
-			foxrun24 = ImageIO.read(Window.class.getResource("332.png"));
-			foxrun25 = ImageIO.read(Window.class.getResource("333.png"));
-			foxrun26 = ImageIO.read(Window.class.getResource("334.png"));
-			foxrun27 = ImageIO.read(Window.class.getResource("335.png"));
-			foxrun28 = ImageIO.read(Window.class.getResource("336.png"));
-			foxrun29 = ImageIO.read(Window.class.getResource("337.png"));
-			foxrun30 = ImageIO.read(Window.class.getResource("339-241.png"));
-			foxrun31 = ImageIO.read(Window.class.getResource("340.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("244.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("245.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("246.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("247.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("248.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("250.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("280.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("282.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("283.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("284.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("285.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("286.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("287.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("288.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("289.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("290.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("292.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("302.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("306.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("327.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("329.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("330.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("331.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("332.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("333.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("334.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("335.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("336.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("337.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("339-241.png"));
+			foxyRuns[i++] = ImageIO.read(Window.class.getResource("340.png"));
 			powerout1 = ImageIO.read(Window.class.getResource("326.png"));
 			powerout2 = ImageIO.read(Window.class.getResource("307.png"));
 			powerout3 = ImageIO.read(Window.class.getResource("348.png"));
@@ -488,7 +490,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(showstage, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("Dining Area")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("Dining Area")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Bonnie.isInRoom() != 1 && Chicka.isInRoom() != 1
@@ -540,7 +542,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(diningarea, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("East Hall A")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("East Hall A")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Chicka.isInRoom() == 5 && Freddy.isInRoom() != 3
@@ -570,7 +572,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(easthall, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("East Hall B")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("East Hall B")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Chicka.isInRoom() != 7 && Freddy.isInRoom() != 4) {
@@ -592,7 +594,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(ehallcorner, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("Backstage")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("Backstage")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Bonnie.isInRoom() != 3 && Bonnie.isInRoom() != 4) {
@@ -614,7 +616,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(backstage, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("Pirate Cove")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("Pirate Cove")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Foxy.getStage() == 0) {
@@ -630,7 +632,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(piratecove, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("Restrooms")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("Restrooms")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Chicka.isInRoom() == 3 && Freddy.isInRoom() != 2
@@ -676,7 +678,25 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(westhall, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("West Hall B")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					if (cameraLocation.equals("West Hall A")
+							&& Foxy.getStage() == 3) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+//						if (Bonnie.isInRoom() == 5) {
+//							Bonnie.inRoom -= 1;
+//						}
+						if (Foxy.getStage() == 3) {//This part is special as this hall can also feature Foxy running down it. This handles that animation
+							needToMove = false;
+							if (Fox == 1)
+								run.play();
+							else if (Fox == 0)
+								Fox = 1;
+							g.drawImage(foxyRuns[Fox - 1], 0, 0, this);
+
+						}
+						g.drawImage(
+								makeColorTransparent(westhall, Color.black),
+								800, 290, this);
+					}
+					else if (cameraLocation.equals("West Hall B")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Bonnie.isInRoom() != 7) {
@@ -691,7 +711,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(whallcorner, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("Supply Closet")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
+					else if (cameraLocation.equals("Supply Closet")) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 						needToMove = true;
 
 						if (Bonnie.isInRoom() != 6) {
@@ -704,81 +724,7 @@ public class Window extends JFrame { //A ton of variable declarations
 								makeColorTransparent(supplycloset, Color.black),
 								800, 290, this);
 					}
-					if (cameraLocation.equals("West Hall A")
-							&& Foxy.getStage() == 3) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
 
-						if (Foxy.getStage() == 3) {//This part is special as this hall can also feature Foxy running down it. This handles that animation
-							needToMove = false;
-							if (Fox == 1) {
-								g.drawImage(foxrun1, 0, 0, this);
-								run.play();
-							}
-							if (Fox == 2)
-								g.drawImage(foxrun2, 0, 0, this);
-							if (Fox == 3)
-								g.drawImage(foxrun3, 0, 0, this);
-							if (Fox == 4)
-								g.drawImage(foxrun4, 0, 0, this);
-							if (Fox == 5)
-								g.drawImage(foxrun5, 0, 0, this);
-							if (Fox == 6)
-								g.drawImage(foxrun6, 0, 0, this);
-							if (Fox == 7)
-								g.drawImage(foxrun7, 0, 0, this);
-							if (Fox == 8)
-								g.drawImage(foxrun8, 0, 0, this);
-							if (Fox == 9)
-								g.drawImage(foxrun9, 0, 0, this);
-							if (Fox == 10)
-								g.drawImage(foxrun10, 0, 0, this);
-							if (Fox == 11)
-								g.drawImage(foxrun11, 0, 0, this);
-							if (Fox == 12)
-								g.drawImage(foxrun12, 0, 0, this);
-							if (Fox == 13)
-								g.drawImage(foxrun13, 0, 0, this);
-							if (Fox == 14)
-								g.drawImage(foxrun14, 0, 0, this);
-							if (Fox == 15)
-								g.drawImage(foxrun15, 0, 0, this);
-							if (Fox == 16)
-								g.drawImage(foxrun16, 0, 0, this);
-							if (Fox == 17)
-								g.drawImage(foxrun17, 0, 0, this);
-							if (Fox == 18)
-								g.drawImage(foxrun18, 0, 0, this);
-							if (Fox == 19)
-								g.drawImage(foxrun19, 0, 0, this);
-							if (Fox == 20)
-								g.drawImage(foxrun20, 0, 0, this);
-							if (Fox == 21)
-								g.drawImage(foxrun21, 0, 0, this);
-							if (Fox == 22)
-								g.drawImage(foxrun22, 0, 0, this);
-							if (Fox == 23)
-								g.drawImage(foxrun23, 0, 0, this);
-							if (Fox == 24)
-								g.drawImage(foxrun24, 0, 0, this);
-							if (Fox == 25)
-								g.drawImage(foxrun25, 0, 0, this);
-							if (Fox == 26)
-								g.drawImage(foxrun26, 0, 0, this);
-							if (Fox == 27)
-								g.drawImage(foxrun27, 0, 0, this);
-							if (Fox == 28)
-								g.drawImage(foxrun28, 0, 0, this);
-							if (Fox == 29)
-								g.drawImage(foxrun29, 0, 0, this);
-							if (Fox == 30)
-								g.drawImage(foxrun30, 0, 0, this);
-							if (Fox == 31)
-								g.drawImage(foxrun31, 0, 0, this);
-							
-						}
-						g.drawImage(
-								makeColorTransparent(westhall, Color.black),
-								800, 290, this);
-					}
 					g.drawImage(
 							makeColorTransparent(cameraMinimap, Color.black),
 							825, 325, this);
@@ -1211,7 +1157,6 @@ public class Window extends JFrame { //A ton of variable declarations
 		}
 		repaint();
 	}
-
 	public double height(double height) {
 		if (height > 720) {
 			height = 720;
