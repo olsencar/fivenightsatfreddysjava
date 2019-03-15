@@ -680,9 +680,6 @@ public class Window extends JFrame { //A ton of variable declarations
 					}
 					if (cameraLocation.equals("West Hall A")
 							&& Foxy.getStage() == 3) {//The format of all of these is the same. Depending on the location viewed, and the characters in the room, a specific image is displayed
-//						if (Bonnie.isInRoom() == 5) {
-//							Bonnie.inRoom -= 1;
-//						}
 						if (Foxy.getStage() == 3) {//This part is special as this hall can also feature Foxy running down it. This handles that animation
 							needToMove = false;
 							if (Fox == 1)
