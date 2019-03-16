@@ -103,8 +103,8 @@ public class Window extends JFrame { //A ton of variable declarations
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		try {//Imports all images for the game
-			offline = ImageIO.read(Window.class.getResource("offline.jpg"));
-			loading = ImageIO.read(Window.class.getResource("jump.jpg"));
+			//offline = ImageIO.read(Window.class.getResource("offline.jpg"));
+			//loading = ImageIO.read(Window.class.getResource("jump.jpg"));
 			lose = ImageIO.read(Window.class.getResource("Lose.png"));
 			win = ImageIO.read(Window.class.getResource("StandardWin.png"));
 			zero = ImageIO.read(Window.class.getResource("zero.png"));
