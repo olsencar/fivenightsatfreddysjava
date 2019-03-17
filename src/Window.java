@@ -44,6 +44,7 @@ public class Window extends JFrame { //A ton of variable declarations
 	static String door = "./bin/Door.wav";
 	static String main1 = "./bin/MainMenu1.wav";
 	static String main2 = "./bin/MainMenu2.wav";
+	static String tutorial = "./bin/tutorial.wav";
 	BufferedImage stage;
 	static AudioInputStream audioIn;
 	//BufferedImage currentView;
@@ -102,8 +103,8 @@ public class Window extends JFrame { //A ton of variable declarations
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		try {//Imports all images for the game
-			offline = ImageIO.read(Window.class.getResource("offline.jpg"));
-			loading = ImageIO.read(Window.class.getResource("jump.jpg"));
+			//offline = ImageIO.read(Window.class.getResource("offline.jpg"));
+			//loading = ImageIO.read(Window.class.getResource("jump.jpg"));
 			lose = ImageIO.read(Window.class.getResource("Lose.png"));
 			win = ImageIO.read(Window.class.getResource("StandardWin.png"));
 			zero = ImageIO.read(Window.class.getResource("zero.png"));
@@ -424,6 +425,7 @@ public class Window extends JFrame { //A ton of variable declarations
 				if(mainmenumusicplaying == false) {//Plays the menu music
 					playSound(main1);
 					playSound(ambiance1);
+					playSound(tutorial);
 					mainmenumusicplaying = true;
 				}
 				needToMove = false;
